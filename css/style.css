@@ -1,0 +1,31 @@
+*{font-family: Arial, Helvetica, sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+h1{
+    padding: 5px;
+    background-color: #227CCA;
+    font-size: 4.5rem;
+}
+p{
+    font-size: 2.5rem;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: lightblue;
+}
+#resbox{
+    width: 50vw;
+    background-color: lightblue;
+    padding: 5px;
+}
+fieldset{
+    background-color: lightblue;
+}
+legend{
+    background-color: lightblue;
+    font-size: 3.5rem;
+}
+body{
+    background: linear-gradient(#6D9EC9, #BADFFF);
+}

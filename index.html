@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let entering = true;
+        let sales = [];
+        let subTotal = 0;
+        let comCut = 0;
+        let cutPercent = 0;
+        let totEarnings = 0;
+        userName = prompt(`Please enter your name:`);
+        while(entering == true){
+            saleValue = prompt(`Hi ${userName}, Please enter the dollar amount of your sales a single sale at a time. Enter 'Done' when you are finished`);
+            console.log(typeof saleValue);
+            console.log(saleValue);
+            if(Number(saleValue) === NaN || saleValue === null){
+                alert(`Values must be entered as numbers. Valid entrys are "1000", "628.31", "3.14" etc..`)
+            }else if (saleValue.toLowerCase() == 'done'){
+                let i = 0;
+                while(i < sales.length){
+                subTotal += Number(sales[i])
+                i++
+                console.log(subTotal)
+                }
+                break;
+            }else{
+                sales.push(saleValue);
+            }
+        }
+        console.log('subtotal is ' + subTotal)
+        if(subTotal <= 0){
+            cutPercent = 0;
+            console.log('0%')
+        } else if(subTotal < 499.99 && subTotal >= 0.01){
+            cutPercent = 5;
+            console.log('5%')
+        } else if(subTotal >= 500 && subTotal < 999.99){
+            cutPercent = 10;
+            console.log('10%')
+        } else if(subTotal >= 1000){
+            cutPercent = 15;
+            console.log('15%')
+        }
+        console.log(subTotal);
+        comCut = subTotal * cutPercent / 100;
+        comCut = Number(comCut.toFixed(3));
+        console.log(`comCut is ${comCut}`);
+        totEarnings = Number(subTotal) + Number(comCut);
+        document.write('<h1>Hello ' + userName + `, here is your <i>Weekly Commission Report</i>.</h1>` 
+        + '<div id="resbox">' 
+            + '<fieldset><legend>SubTotal</legend><p>Your sales total is $' + subTotal.toFixed(2) +  ', so your commision rate is ' + cutPercent + '%</p></fieldset>' 
+            + '<fieldset><legend>Commission</legend><p>Your commission is $' + comCut.toFixed(2) + '</p></fieldset>' 
+            + '<fieldset><legend>Total Earnings</legend><p>Your total earnings were $' + totEarnings.toFixed(2) + '</p></fieldset>' 
+        + '</div>');
+    </script>
+</body>
+</html>
